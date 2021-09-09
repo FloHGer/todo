@@ -17,8 +17,6 @@ body{
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-/* HEADER */
-
-/* MAIN */
-
-/* FOOTER */
+.done{
+  background: #0f0;
+}

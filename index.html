@@ -10,23 +10,39 @@
 </head>
 <body>
 <header>
-  <h1>ToDo List</h1>
+  <h1>ToDo-List</h1>
 </header>
 <main>
+<!-- INPUT FORM -->
   <form>
-    <label for="task">Today's tasks</label>
-    <input type="text" name="task" id="task" placeholder="Enter the task">
+    <label for="name">New Task:</label>
+    <input type="text"
+      name="name"
+      id="name"
+      placeholder="task name"
+      required
+    >
+    <label for="category">Category:</label>
+    <input type="text"
+      name="category"
+      id="category"
+      placeholder="category name"
+      required
+    >
     <label for="deadline">Dead line:</label>
-    <input type="date" name="deadline" id="deadline" placeholder="Enter date">
-    <button type="submit" id="button">Put it on the ToDo List!</button>
+    <input type="date"
+      name="deadline"
+      id="deadline"
+    >
+    <button type="submit"
+      id="button"
+    >Create Task</button>
   </form>
-  <button id="reset">delete list</button>
-
+  <!-- OUTPUT ANCHOR -->
   <div class="output"></div>
+  <!-- RESET BUTTON -->
+    <button id="reset">delete list</button>
 </main>
-<footer>
-  
-</footer>
 <script src="main.js" type="module"></script>
 </body>
 </html>
