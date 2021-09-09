@@ -10,6 +10,7 @@ document.querySelector('form').addEventListener('submit', e => {
     name: formData.get('name'),
     category: formData.get('category'),
     deadline: formData.get('deadline'),
+    done : false,
   }
   // reset inputs
   document.querySelectorAll('input').forEach(e => e.value = '');
@@ -58,10 +59,19 @@ function renderList(){
     deadline.innerText = e.deadline;
     container.appendChild(deadline);
 
-    let markDone = document.createElement('button');
-    markDone.innerText = 'done';
-    markDone.classList.add('doneButtons', `task${i}`);
-    container.appendChild(markDone);
+    if(e.done == true){
+      let markDone = document.createElement('button');
+      markDone.innerText = 'undone';
+      markDone.classList.add('doneButtons', `task${i}`);
+      container.classList.add('done');
+      container.appendChild(markDone);
+    }
+    else if(e.done == false){
+      let markDone = document.createElement('button');
+      markDone.innerText = 'done';
+      markDone.classList.add('doneButtons', `task${i}`);
+      container.appendChild(markDone);
+    }
 
     let deleteTask = document.createElement('button');
     deleteTask.innerText = 'delete Task';
@@ -75,10 +85,20 @@ document.querySelector('.output').addEventListener('click', e => {
   if(e.target.classList[0] == 'doneButtons'){
     if(e.target.innerText == 'done') e.target.innerText = 'undone';
     else e.target.innerText = 'done';
-    e.target.parentElement.classList.toggle('done')
+    e.target.parentElement.classList.toggle('done');
+    let index = e.target.classList[1].slice(4);
+    toggleDone(index);
   }
     
 });
+
+function toggleDone(index){
+  let storage = JSON.parse(localStorage.getItem('entries'));
+  if(storage[index].done == true)
+    storage[index].done = false;
+  else storage[index].done = true;
+  localStorage.setItem("entries", JSON.stringify(storage));
+}
 
 // CLOSING BUTTONS
 document.querySelector('.output').addEventListener('click', e => {
