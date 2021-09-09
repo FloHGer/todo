@@ -1,0 +1,24 @@
+/* GENERAL */
+:root{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body{
+  font-size: 1.6rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+/* MAIN */
+
+/* FOOTER */
